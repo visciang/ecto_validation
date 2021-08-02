@@ -44,7 +44,6 @@ defmodule ApiDataStructure do
 
   defmodule User do
     use Ecto.Schema
-
     import Ecto.Changeset
 
     alias ApiDataStructure.Profile
