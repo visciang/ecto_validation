@@ -34,7 +34,7 @@ defmodule ExampleValidationTest do
       username: "xxx"
     }
 
-    assert {:ok, expected_data} == DataSpecs.load(@data, {User, :t})
+    assert {:ok, expected_data} == User.load(@data)
   end
 
   test "ecto" do

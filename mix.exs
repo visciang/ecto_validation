@@ -20,7 +20,7 @@ defmodule ExampleValidation.MixProject do
   defp deps do
     [
       {:ecto_sql, "~> 3.7"},
-      {:dataspecs, git: "https://github.com/visciang/dataspecs.git", tag: "1.2.0"}
+      {:dataspecs, git: "https://github.com/visciang/dataspecs.git", tag: "1.2.1"}
     ]
   end
 end

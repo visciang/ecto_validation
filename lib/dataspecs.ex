@@ -21,6 +21,8 @@ defmodule ExampleValidation.DataSpecs.ApiDataStructure do
   end
 
   defmodule User do
+    use DataSpecs
+
     @enforce_keys [:username, :email, :address, :profile]
     defstruct @enforce_keys
 
