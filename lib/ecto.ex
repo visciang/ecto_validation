@@ -1,8 +1,4 @@
-#! /usr/bin/env elixir
-
-Mix.install([:ecto_sql])
-
-defmodule ApiDataStructure do
+defmodule ExampleValidation.Ecto.ApiDataStructure do
   defmodule Address do
     use Ecto.Schema
     import Ecto.Changeset
@@ -44,10 +40,7 @@ defmodule ApiDataStructure do
 
   defmodule User do
     use Ecto.Schema
-
     import Ecto.Changeset
-
-    alias ApiDataStructure.Profile
 
     @required_fields [:username, :email]
 
@@ -67,41 +60,4 @@ defmodule ApiDataStructure do
       |> validate_required(@required_fields)
     end
   end
-
-  def run do
-    input = %{
-      "username" => "xxx",
-      "email" => "xxx@mail.com",
-      "profile" => %{"timezone" => "Europe/Prague"},
-      "address" => [
-        %{
-          "streetname" => "High Street",
-          "streenumber" => "3a",
-          "postcode" => "SO31 4NG",
-          "town" => "Hedge End, Southampton"
-        }
-      ]
-    }
-
-    %ApiDataStructure.User{}
-    |> ApiDataStructure.User.changeset(input)
-    |> Ecto.Changeset.apply_changes()
-  end
 end
-
-ApiDataStructure.run()
-|> IO.inspect()
-
-# %ApiDataStructure.User{
-#   address: [
-#     %ApiDataStructure.Address{
-#       postcode: "SO31 4NG",
-#       streenumber: "3a",
-#       streetname: "High Street",
-#       town: "Hedge End, Southampton"
-#     }
-#   ],
-#   email: "xxx@mail.com",
-#   profile: %ApiDataStructure.Profile{timezone: "Europe/Prague"},
-#   username: "user"
-# }
