@@ -34,7 +34,7 @@ defmodule ExampleValidationTest do
       username: "xxx"
     }
 
-    assert {:ok, expected_data} == User.load(@data)
+    assert {:ok, expected_data} == User.cast(@data)
   end
 
   test "ecto" do
